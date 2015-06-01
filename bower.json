@@ -1,0 +1,22 @@
+{
+  "name": "S-Pi-Web",
+  "version": "0.0.0",
+  "homepage": "https://github.com/pmpokorny/S-Pi-Web",
+  "authors": [
+    "Peter Pokorny <pmpokorny@gmail.com>",
+    "Carly Thelander <tcarly@pdx.edu>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "react-bootstrap": "~0.23.0",
+    "react": "~0.13.3",
+    "reflux": "~0.2.7"
+  }
+}
