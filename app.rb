@@ -3,7 +3,6 @@ require 'sinatra'
 
 
 class ExampleApp < Sinatra::Base
-  get '/' do
-    "Hello Team B!"
-  end
+  set :public_folder, File.dirname(__FILE__) + '/bower_components'
+
 end
