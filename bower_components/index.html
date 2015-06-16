@@ -4,14 +4,18 @@
     <script src="/react/react.js"></script>
     <script src="/react/JSXTransformer.js"></script>
     <script src="/react-bootstrap/react-bootstrap.min.js"></script>
+    <link href="/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/bootstrap-theme-cosmo/cosmo.min.css" rel="stylesheet">
   </head>
   <body>
-    <div id="example"></div>
-    <script type="text/jsx">
-    React.render(
-      <h1>Hello, Team B!</h1>,
-      document.getElementById('example')
-    );
+    <script>
+      const panelInstance = (
+        <Panel>
+          Basic panel example
+        </Panel>
+      );
+
+        React.render(panelInstance, mountNode);
     </script>
   </body>
 </html>
