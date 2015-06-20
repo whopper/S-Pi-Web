@@ -148,14 +148,82 @@
             </div>
             <div class="panel-body">
               <ul class="list-group">
-                <li class="list-group-item">Clinical Data</li>
-                <li class="list-group-item">Lab Tests</li>
-                <li class="list-group-item">Medications</li>
-                <li class="list-group-item">Progress Notes</li>
+                <a href="#" class="list-group-item" data-toggle="modal" data-target="#dataModal">Clinical Data</a>
+                <a href="#" class="list-group-item" data-toggle="modal" data-target="#labsModal">Lab Data</a>
+                <a href="#" class="list-group-item" data-toggle="modal" data-target="#medsModal">Medications</a>
+                <a href="#" class="list-group-item" data-toggle="modal" data-target="#progressModal">Progress Notes</a>
               </ul>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
 
+    <!-- Modals HTML -->
+    <div id="dataModal" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title">Data</h4>
+          </div>
+          <div class="modal-body">
+              <p>This is a modal for clinical data</p>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="labsModal" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title">Labs</h4>
+          </div>
+          <div class="modal-body">
+              <p>This is a modal for labs</p>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="medsModal" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title">Meds</h4>
+          </div>
+          <div class="modal-body">
+              <p>This is a modal for medications</p>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="progressModal" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title">Notes</h4>
+          </div>
+          <div class="modal-body">
+              <p>This is a modal for progress notes</p>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
         </div>
       </div>
     </div>
