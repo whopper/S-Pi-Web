@@ -1,51 +1,262 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <script src="./bower_components/react/react.js"></script>
-    <script src="./bower_components/react/JSXTransformer.js"></script>
-    <script src="./bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="./bower_components/react-bootstrap/react-bootstrap.min.js"></script>
-    <link href="./bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="./bower_components/bootstrap-theme-cosmo/cosmo.min.css" rel="stylesheet">
-  </head>
-  <body>
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">S-PI</a>
-    </div>
+    <head>
+        <script src="./bower_components/react/react.js"></script>
+        <script src="./bower_components/react/JSXTransformer.js"></script>
+        <script src="./bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="./bower_components/react-bootstrap/react-bootstrap.min.js"></script>
+        <link href="./bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="./bower_components/bootstrap-theme-cosmo/cosmo.min.css" rel="stylesheet">
+        <link href="./overview.css" rel="stylesheet">
+    </head>
+    <body>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
-      </ul>
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">S-PI</a>
+                </div>
 
-      <!-- right side of navbar -->
-      <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Options <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Filters</a></li>
-            <li><a href="#">High Contrast View</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+                    </ul>
 
-  </body>
+                    <!-- right side of navbar -->
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Options <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Filters</a></li>
+                                <li><a href="#">High Contrast View</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+
+
+        <!-- Working on patient box -->
+        <!-- left columne for patient boxes -->
+        <div class="row">
+            <div class="col-sm-10">
+
+                <!-- Top row patient boxes -->
+                <div class="row">
+
+                    <div class="col-xs-5 col-sm-5 patient_box">
+
+                        <div class="row">
+                            <div class="col-xs-4 col-sm-4">
+                                <h4>Mr. Patient</h4>
+                                <div class="thumbnail ">
+                                    <img src=./images/patient.jpg alt="Patient Photo Not Available" width="100px"/>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 tab">
+                             <table class='table table-striped table-condensed table-hover table-bordered'>
+                          <!--       <thead>
+                                      <tr>
+                                           <th>Item</th>
+                                           <th>Detail</th>
+                                     </tr>
+                                     </thead>     -->
+                                 <tbody>
+                                      <tr>
+                                           <td>Bed</td>
+                                           <td>#231</td>
+                                      <tr>
+                                      <tr>
+                                           <td>Temperature</td>
+                                           <td>98</tD>
+                                      </tr>
+                                      <tr>
+                                           <td>Blood Pressure</td>
+                                           <td>160/90</td>
+                                      </tr>
+                                      <tr>
+                                           <td>Heart Rate</td>
+                                           <td>90</td>
+                                      </tr>
+                                 </tbody>
+                            </table>
+                            </div>
+                        </div>
+                        <div class="thumbnail">
+                            <img src=./images/ecg2.jpg alt="Graph Not Available">
+                        </div>
+                    </div>
+                    <div class="col-xs-5 col-sm-5 patient_box">
+                        <div class="row">
+                            <div class="col-xs-4 col-sm-4 ">
+                                <h4>Mr. Patient</h4>
+                                <div class="thumbnail ">
+                                    <img src=./images/patient.jpg alt="Patient Photo Not Available" width="100px"/>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 tab">
+                             <table class='table table-striped table-condensed table-hover table-bordered'>
+                      <!--           <thead>
+                                      <tr>
+                                           <th>Item</th>
+                                           <th>Detail</th>
+                                     </tr>
+                                     </thead>   -->
+                                 <tbody>
+                                      <tr>
+                                           <td>Bed</td>
+                                           <td>#231</td>
+                                      <tr>
+                                      <tr>
+                                           <td>Temperature</td>
+                                           <td>98</tD>
+                                      </tr>
+                                      <tr>                    
+                                           <td>Blood Pressure</td>
+                                           <td>160/90</td>
+                                      </tr>
+                                      <tr>
+                                           <td>Heart Rate</td>
+                                           <td>90</td>
+                                      </tr>
+                                 </tbody>
+                            </table>
+                            </div>
+                        </div>
+                        <div class="thumbnail">
+                            <img src=./images/ecg2.jpg alt="Graph Not Available">
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- second row patient boxes -->
+                <div class="row">
+
+                    <div class="col-xs-5 col-sm-5 patient_box">
+
+                        <div class="row">
+                            <div class="col-xs-4 col-sm-4">
+                                <h4>Mr. Patient</h4>
+                                <div class="thumbnail ">
+                                    <img src=./images/patient.jpg alt="Patient Photo Not Available" width="100px"/>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 tab">
+                              <table class='table table-striped table-condensed table-hover table-bordered'>
+                      <!--           <thead>
+                                      <tr>
+                                           <th>Item</th>
+                                           <th>Detail</th>
+                                     </tr>
+                                     </thead>  -->
+                                 <tbody>
+                                      <tr>
+                                           <td>Bed</td>
+                                           <td>#231</td>
+                                      <tr>
+                                      <tr>
+                                           <td>Temperature</td>
+                                           <td>98</tD>
+                                      </tr>
+                                      <tr>
+                                           <td>Blood Pressure</td>
+                                           <td>160/90</td>
+                                      </tr>
+                                      <tr>
+                                           <td>Heart Rate</td>
+                                           <td>90</td>
+                                      </tr>
+                                 </tbody>
+                            </table>      
+                            </div>
+                        </div>
+                        <div class="thumbnail">
+                            <img src=./images/ecg2.jpg alt="Graph Not Available">
+                        </div>
+                    </div>
+                    <div class="col-xs-5 col-sm-5 patient_box">
+                        <div class="row">
+                            <div class="col-xs-4 col-sm-4">
+                                <h4>Mr. Patient</h4>
+                                <div class="thumbnail ">
+                                    <img src=./images/patient.jpg alt="Patient Photo Not Available" width="100px"/>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 tab">
+                              <table class='table table-striped table-condensed table-hover table-bordered'>
+                             <!--    <thead>
+                                      <tr>
+                                           <th>Item</th>
+                                           <th>Detail</th>
+                                     </tr>
+                                     </thead>   -->
+                                 <tbody>
+                                      <tr>
+                                           <td>Bed</td>
+                                           <td>#231</td>
+                                      <tr>
+                                      <tr>
+                                           <td>Temperature</td>
+                                           <td>98</tD>
+                                      </tr>
+                                      <tr>
+                                           <td>Blood Pressure</td>
+                                           <td>160/90</td>
+                                      </tr>
+                                      <tr>
+                                           <td>Heart Rate</td>
+                                           <td>90</td>
+                                      </tr>
+                                 </tbody>
+                            </table>        
+                            </div>
+                        </div>
+                        <div class="thumbnail">
+                            <img src=./images/ecg2.jpg alt="Graph Not Available">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- end of left column -->
+            <!-- Right column for alerts-->
+            <div class="row">
+                <div class="col-sm-2">
+
+                    <!-- Alert panel -->
+                    <div class="panel panel-default alert_box" style="margin-left:-75px" > 
+                      <div class="panel-heading">
+                        <h3 class="panel-title">ALERTS</h3>
+                      </div>
+                      <div class="panel-body">
+                            <div class="alert alert-danger" role="alert">CODE: BLUE <br/> Mr.Patient <br/> is in distress</div>
+                            <div class="alert alert-warning" role="alert">CODE: BLUE <br/> Mr.Patient <br/> is in distress</div>
+                            <br/>  <br/>  <br/>  <br/>  <br/>   
+                            <br/>  <br/>  <br/>  <br/>  <br/>  <br/>  <br/>  
+                        </div>
+                    </div>
+
+                </div>                         
+                <!-- end of right column -->
+            </div>
+        </div>
+        </div>
+
+    </body>
 </html>
