@@ -20,9 +20,21 @@ body {
 
 .tab {
     margin-top:13px;
-    margin-left:20px; 
+  /*  margin-left:20px;*/ 
+}
+
+.alert_red {
+    background-color:white;
+    border:8px solid;
+    border-color:red;
+    color:black;
 
 }
 
+.alert_orange {
+    background-color:white;
+    border:8px solid;
+    border-color:orange;
+    color:black;
 
-
+}
