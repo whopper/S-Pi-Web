@@ -18,20 +18,29 @@ body {
 }
 
 .graphJumbotron {
-  padding-top: 21px;
-  padding-bottom: 21px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   padding-left: 21px;
   padding-right: 21px;
 }
 
 .graph-panel {
-  height: 150px;
+  height: 120px;
+}
+
+.well {
+  padding: 0px;
 }
 
 .number-well {
   width: 140px;
-  height: 120px;
-  font-size: 500%;
+  height: 90px;
+  padding: 0px;
+  font-size: 400%;
+}
+
+.number-well-text {
+  float: center;
 }
 
 .infoBox {
@@ -49,10 +58,10 @@ body {
 }
 
 .info-panel {
-  height: 321px;
+  height: 261px;
 }
 
 .list-group-item {
   padding-bottom: 5px;
-  font-size: 180%;
+  font-size: 150%;
 }
