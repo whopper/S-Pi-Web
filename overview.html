@@ -261,7 +261,7 @@
                             <h3 class="panel-title">ALERTS</h3>
                         </div>
                         <div class="panel-body">
-                            <div class="panel panel-danger"data-toggle="modal" data-target="#alertModal">
+                            <div class="panel panel-danger alert-notification"data-toggle="modal" data-target="#alertModal">
                                 <div class="panel-heading">
                                     <div class="panel-title">
                                         CODE: BLUE 
@@ -271,7 +271,7 @@
                                     Mr. Patient - Bed #231 
                                 </div>
                             </div>
-                            <div class="panel panel-warning"data-toggle="modal" data-target="#alertModal">
+                            <div class="panel panel-warning alert-notification"data-toggle="modal" data-target="#alertModal">
                                 <div class="panel-heading">
                                     <div class="panel-title">
                                         CODE: BLUE 
@@ -285,59 +285,56 @@
                             <br/>  <br/>  <br/>  <br/>  <br/>  <br/>  <br/>  
                         </div>
                     </div>
-
-                </div>                         
+                </div>
                 <!-- end of right column -->
             </div>
         </div>
         </div>
 
-        <!-- Alert Moeal popup -->    
+        <!-- Alert Modal popup -->
         <div id="alertModal" class="modal fade">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title">ALERT</h4>
+                        <div class="modal-title alert alert-warning" role="alert">ALERT</div>
                     </div>
                     <div class="modal-body">
                         <div class="panel panel-default">
                               <!-- Default panel contents -->
-                             <div class="panel-heading">Aler: Mr. Patient - High Heart Rate at 11:34PM</div>
+                             <div class="panel-heading">Alert: Mr. Patient - High Heart Rate at 11:34PM</div>
                              <div class="panel-body">
                              </div>
                                  <!-- Table -->
                                <table class="table">
                                      <tr>
                                           <tr>
-                                               <td>Name: </td>
-                                               <td>Mr. Patien</tD>
+                                               <td><b>Name:</b> </td>
+                                               <td>Mr. Patient</td>
                                            </tr>
                                            <tr>
-                                               <td>Age: </td>
+                                               <td><b>Age:</b> </td>
                                                <td>27</td>
                                           </tr>
                                           <tr>
-                                             <td>Bed:  </td>
+                                             <td><b>Bed:</b>  </td>
                                              <td>243</td>
-                                         </tr>                                          
+                                         </tr>
                                          <tr>
-                                             <td>Code:  </td>
+                                             <td><b>Code:</b>  </td>
                                              <td>23A</td>
-                                         </tr>           
+                                         </tr>
                                          <tr>
-                                             <td>Status:  </td>
+                                             <td><b>Status:</b>  </td>
                                              <td>Active Warning</td>
                                          </tr>
                                          <tr>
-                                             <td>Alert Length:  </td>
+                                             <td><b>Alert Length:</b>  </td>
                                              <td>162 seconds</td>
                                          </tr>
                                          <tr>
-                                             <td>Maximum Heart Rate:  </td>
+                                             <td><b>Maximum Heart Rate:</b>  </td>
                                              <td>155 BPM</td>
                                          </tr>
-                                    
                               </table>
                         </div>
                     </div>
