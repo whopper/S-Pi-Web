@@ -9,6 +9,8 @@
         <link href="./bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="./bower_components/bootstrap-theme-cosmo/cosmo.min.css" rel="stylesheet">
         <link href="./overview.css" rel="stylesheet">
+        <script src="./bower_components/flot/jquery.flot.js"></script>
+        <link href="./flot_graphs/flot_graphs.css" rel="stylesheet">
     </head>
     <body>
         <nav class="navbar navbar-default">
@@ -108,7 +110,14 @@
                                 </div>
                             </div>
                             <div class="thumbnail">
-                                <img src=./images/ecg2.jpg alt="Graph Not Available">
+                                <div id="content1">
+                                    <div class="demo-container">
+                                      <div id="patient1" class="demo-placeholder">
+                                        <canvas class="flot-base" ></canvas>
+                                        <canvas class="flot-overlay"></canvas>
+                                      </div>
+                                    </div>
+                                </div>
                             </div>
                         </a>
                     </div>
@@ -151,7 +160,14 @@
                                 </div>
                             </div>
                             <div class="thumbnail">
-                                <img src=./images/ecg2.jpg alt="Graph Not Available">
+                              <div id="content2">
+                                  <div class="demo-container">
+                                    <div id="patient2" class="demo-placeholder">
+                                      <canvas class="flot-base" ></canvas>
+                                      <canvas class="flot-overlay"></canvas>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
                         </a>
                     </div>
@@ -200,7 +216,14 @@
                                 </div>
                             </div>
                             <div class="thumbnail">
-                                <img src=./images/ecg2.jpg alt="Graph Not Available">
+                                <div id="content3">
+                                    <div class="demo-container">
+                                      <div id="patient3" class="demo-placeholder">
+                                        <canvas class="flot-base" ></canvas>
+                                        <canvas class="flot-overlay"></canvas>
+                                      </div>
+                                    </div>
+                                </div>
                             </div>
                         </a>
                     </div>
@@ -243,7 +266,14 @@
                                 </div>
                             </div>
                             <div class="thumbnail">
-                                <img src=./images/ecg2.jpg alt="Graph Not Available">
+                              <div id="content4">
+                                <div class="demo-container">
+                                  <div id="patient4" class="demo-placeholder">
+                                    <canvas class="flot-base" ></canvas>
+                                    <canvas class="flot-overlay"></canvas>
+                                  </div>
+                                </div>
+                              </div>                      
                             </div>
                         </a>
                     </div>
@@ -344,6 +374,16 @@
                 </div>
             </div>
         </div>
+      <script src="./flot_graphs/flot_graphs.js"></script>
+      <script type="text/javascript">
+
+        $(document).ready(function() {
+            console.log("ready!");
+            for(var i = 1; i <= 4; i++) {
+                main("#patient" + i);
+            }
+        });
+      </script>
 
     </body>
 </html>
