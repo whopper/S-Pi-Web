@@ -11,6 +11,11 @@
         <link href="./overview.css" rel="stylesheet">
         <script src="./bower_components/flot/jquery.flot.js"></script>
         <link href="./flot_graphs/flot_graphs.css" rel="stylesheet">
+
+        <script src="./bower_components/vertx/sockjs-0.3.min.js"></script>
+        <script src="./bower_components/vertx/vertxbus.js"></script>
+
+
     </head>
     <body>
         <nav class="navbar navbar-default">
@@ -378,9 +383,8 @@
       <script type="text/javascript">
 
         $(document).ready(function() {
-            console.log("ready!");
             for(var i = 1; i <= 4; i++) {
-                main("#patient" + i);
+                integrate("#patient" + i);
             }
         });
       </script>
