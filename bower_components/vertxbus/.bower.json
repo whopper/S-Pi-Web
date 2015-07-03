@@ -1,0 +1,19 @@
+{
+  "name": "vertxbus",
+  "main": "./vertxbus.js",
+  "dependencies": {
+    "bower-sockjs-client": "0.3.4"
+  },
+  "homepage": "https://github.com/larrytin/bower-vertxbus",
+  "license": "Apache 2.0",
+  "_release": "913d779870",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "913d779870d934b36c9f8ce07f8e03320245dde5"
+  },
+  "_source": "git://github.com/larrytin/bower-vertxbus.git",
+  "_target": "*",
+  "_originalSource": "vertxbus",
+  "_direct": true
+}
