@@ -17,6 +17,8 @@
   "dependencies": {
     "react-bootstrap": "~0.23.0",
     "react": "~0.13.3",
-    "reflux": "~0.2.7"
+    "reflux": "~0.2.7",
+    "vertxbus": "*",
+    "sockjs": "~0.3.4"
   }
 }
