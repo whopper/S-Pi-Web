@@ -11,6 +11,11 @@
         <link href="./overview.css" rel="stylesheet">
         <script src="./bower_components/flot/jquery.flot.js"></script>
         <link href="./flot_graphs/flot_graphs.css" rel="stylesheet">
+        <script src="./curvedLines.js"></script>
+        <script src="./flot_graphs/overview_graphs.js"></script>
+        <script src="./bower_components/sockjs/sockjs.js"></script>
+        <script src="./bower_components/vertxbus/vertxbus.js"></script>
+
     </head>
     <body>
         <nav class="navbar navbar-default">
@@ -311,8 +316,6 @@
                                     Mr. Patient - Bed #231 
                                 </div>
                             </div>
-                            <br/>  <br/>  <br/>  <br/>  <br/>   
-                            <br/>  <br/>  <br/>  <br/>  <br/>  <br/>  <br/>  
                         </div>
                     </div>
                 </div>
@@ -332,10 +335,11 @@
                         <div class="panel panel-default">
                               <!-- Default panel contents -->
                              <div class="panel-heading">Alert: Mr. Patient - High Heart Rate at 11:34PM</div>
-                             <div class="panel-body">
+                             <div id="alert_table" class="panel-body">
                              </div>
-                                 <!-- Table -->
-                               <table class="table">
+                                 <!-- Table
+                                     is currently being loaded by the javaScript 
+                                     <table class="table">
                                      <tr>
                                           <tr>
                                                <td><b>Name:</b> </td>
@@ -365,7 +369,7 @@
                                              <td><b>Maximum Heart Rate:</b>  </td>
                                              <td>155 BPM</td>
                                          </tr>
-                              </table>
+                              </table> -->
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -374,16 +378,58 @@
                 </div>
             </div>
         </div>
-      <script src="./flot_graphs/flot_graphs.js"></script>
-      <script type="text/javascript">
 
-        $(document).ready(function() {
-            console.log("ready!");
-            for(var i = 1; i <= 4; i++) {
-                main("#patient" + i);
+    <!--  javaScript for the ecg graphs   -->
+      <script type="text/javascript">
+        jQuery(function($) {
+            for(var i = 1; i <= 4; ++i) {
+                ecg_graph(i);
             }
-        });
+           
+        $("#alert_table").html("\
+              <table class='table'>\
+                 <tr>\
+                    <tr>\
+                       <td><b>Name:</b> </td>\
+                       <td>Mr. Patient</td>\
+                    </tr>\
+                    <tr>\
+                       <td><b>Age:</b> </td>\
+                       <td>27</td>\
+                    </tr>\
+                    <tr>\
+                       <td><b>Bed:</b>  </td>\
+                       <td>243</td>\
+                    </tr>\
+                    <tr>\
+                       <td><b>Code:</b>  </td>\
+                       <td>23A</td>\
+                    </tr>\
+                    <tr>\
+                       <td><b>Status:</b>  </td>\
+                       <td>Active Warning</td>\
+                    </tr>\
+                    <tr>\
+                       <td><b>Alert Length:</b>  </td>\
+                       <td>162 seconds</td>\
+                    </tr>\
+                    <tr>\
+                       <td><b>Maximum Heart Rate:</b>  </td>\
+                       <td>155 BPM</td>\
+                    </tr>\
+                </table>\
+             ");
+           });
       </script>
+
+    <script type="text/javascript">
+        jQuery(function($) {
+            setTimeout(function() {
+                $('#alertModal').modal('show');
+            }, 5000);
+        });
+    </script>
+
 
     </body>
 </html>
