@@ -1,0 +1,86 @@
+{
+  "patients": {
+    "0": {
+      "name": "Mr. Seagull",
+      "age": 34,
+      "bed": "104a",
+      "status": "critical",
+      "clinical-data": {
+        "patient_id": "6235-59-23",
+        "hospital_admission_id": 293994,
+        "case_id": 9923,
+        "height": 120,
+        "weight": 40,
+        "allergies": [
+          "Penicillin"
+          ],
+        "cardiac": "true",
+        "blood_pressure": "130/90",
+        "html": "<table class=\"table table-condensed\"> <tr> <th scope=\"row\">Subject ID</th> <td>6235-59-23</td> </tr> <tr> <th scope=\"row\">Hospital Admission ID</th> <td>293994</td> </tr> <tr> <th scope=\"row\">Case ID</th> <td>9923</td> </tr> <tr> <th scope=\"row\">Height</th> <td>120 cm</td> </tr> <tr> <th scope=\"row\">Weight</th> <td>40 kg</td> </tr> <tr class=\"warning\"> <th scope=\"row\">Known allergies</th> <td>Penicillin</td> </tr> <tr> <th scope=\"row\">History of cardiac problem</th> <td>No</th> </tr> <tr class=\"warning\"> <th scope=\"row\">Blood Pressure</th> <td>130/90</th> </tr> </table> <h5>Other notes</h5> <p>- 2015-05-29 Dr. Vance: Upon arrival to ICU, Lego Man's heartrate spiked due to anxiety. Recommend Xanax for future incidents.  </p> </div>"
+      },
+      "labs-data": {
+        "html": "<h5>2015-05-29<\/h5><p>Basic blood tests performed. No abnormalities.<\/p><h5>2015-05-29<\/h5><p>Reflex tests performed. No abnormalities.<\/p>"
+      },
+      "meds-data": {
+        "html": "<table class=\"table table-condensed\"><tr><th>Name<th>Dose<th>Last administered<tr><td>Zantac<td>120 mg<td>Approximately 3:30 pm, prior to Mr. Man's admission to the ICU<tr><td>Morphine<td>1U<td>6:00 pm upon admission to ICU due to extreme leg pain<\/table>"
+      },
+      "progress-data": {
+        "html": "<h5>2015-05-29<\/h5><p>Patient admitted with severe leg pain.<\/p><h5>2015-05-30<\/h5><p>Leg pain continues unabated, blood pressure high.<\/p><h5>2015-06-01<\/h5><p>Minor improvement in pain, still high blood pressure.<\/p><h5>2015-06-02<\/h5><p>Leg pain reappeared. Swelling in knee.<\/p>"
+      }
+    },
+    "1": {
+      "name": "Mrs Hawk",
+      "age": 29,
+      "bed": "109f",
+      "status": "stable",
+      "clinical-data": {
+        "html": "<b>clinical data</b>"
+      },
+      "labs-data": {
+        "html": "<b>labs data</b>"
+      },
+      "meds-data": {
+        "html": "<b>meds data</b>"
+      },
+      "progress-data": {
+        "html": "<b>progress data</b>"
+      }
+    },
+    "2": {
+      "name": "Mr. Birdy",
+      "age": 14,
+      "bed": "100a",
+      "status": "stable",
+      "clinical-data": {
+        "html": "<b>clinical data</b>"
+      },
+      "labs-data": {
+        "html": "<b>labs data</b>"
+      },
+      "meds-data": {
+        "html": "<b>meds data</b>"
+      },
+      "progress-data": {
+        "html": "<b>progress data</b>"
+      }
+    },
+    "3": {
+      "name": "Mr. Legoman",
+      "age": 54,
+      "bed": "104b",
+      "status": "serious",
+      "clinical-data": {
+        "html": "<b>clinical data</b>"
+      },
+      "labs-data": {
+        "html": "<b>labs data</b>"
+      },
+      "meds-data": {
+        "html": "<b>meds data</b>"
+      },
+      "progress-data": {
+        "html": "<b>progress data</b>"
+      }
+    }
+  }
+}
