@@ -6,10 +6,15 @@
     <script src="./bower_components/jquery/dist/jquery.min.js"></script>
     <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="./bower_components/react-bootstrap/react-bootstrap.min.js"></script>
-    <script src="./bower_components/d3/d3.min.js"></script>
-    <script src="./s-pi.js"></script>
     <link href="./bower_components/bootstrap-theme-cosmo/cosmo.min.css" rel="stylesheet">
     <link href="./bower_components/patient.css" rel="stylesheet">
+    <script src="./bower_components/flot/jquery.flot.js"></script>
+    <script src="./bower_components/flot/jquery.flot.resize.js"></script>
+    <link href="./flot_graphs/patient_flot_graphs.css" rel="stylesheet">
+    <script src="./curvedLines.js"></script>
+    <script src="./bower_components/sockjs/sockjs.js"></script>
+    <script src="./bower_components/vertxbus/vertxbus.js"></script>
+    <script src="./s-pi.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
@@ -48,59 +53,97 @@
 
 
     <div id='mainContainer'class="container-fluid" >
-      <div id='graphArea' class='col-md-7 graphBox'>
+      <div id='graphArea' class='col-md-8 graphBox'>
         <div class="jumbotron graphJumbotron">
-          <div class="panel panel-default graph-panel">
-            <div class="panel-body">
-              <div class="pull-left">
-                TOP GRAPH
-              </div>
-              <div class="pull-right">
-                <div class="well well-lg number-well">
-                  <span class='number-well-text col-md-offset-3'>00</span>
+
+          <div class="panel panel-default">
+            <div class="panel-body graph-panel-body">
+              <div class="row graph-row">
+                  <div class="col-md-10">
+                    <div id="content0">
+                      <div class="demo-container">
+                        <div  id="graph0" class="demo-placeholder">
+                          <canvas class="flot-base" ></canvas>
+                          <canvas class="flot-overlay"></canvas>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-md-2 number-box-col">
+                  <div class="well well-lg number-well text-center">
+                    <span class='number-well-text'>00</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="panel panel-default graph-panel">
-            <div class="panel-body">
-              <div class="pull-left">
-                SECOND GRAPH
-              </div>
-              <div class="pull-right">
-                <div class="well well-lg number-well">
-                  <span class='number-well-text col-md-offset-3'>00</span>
+          <div class="panel panel-default">
+            <div class="panel-body graph-panel-body">
+              <div class="row graph-row">
+                  <div class="col-md-10">
+                    <div id="content1">
+                      <div class="demo-container">
+                        <div  id="graph1" class="demo-placeholder">
+                          <canvas class="flot-base" ></canvas>
+                          <canvas class="flot-overlay"></canvas>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-md-2 number-box-col">
+                  <div class="well well-lg number-well text-center">
+                    <span class='number-well-text'>00</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="panel panel-default graph-panel">
-            <div class="panel-body">
-              <div class="pull-left">
-                THIRD GRAPH
-              </div>
-              <div class="pull-right">
-                <div class="well well-lg number-well">
-                  <span class='number-well-text col-md-offset-3'>00</span>
+          <div class="panel panel-default">
+            <div class="panel-body graph-panel-body">
+              <div class="row graph-row">
+                  <div class="col-md-10">
+                    <div id="content2">
+                      <div class="demo-container">
+                        <div  id="graph2" class="demo-placeholder">
+                          <canvas class="flot-base" ></canvas>
+                          <canvas class="flot-overlay"></canvas>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-md-2 number-box-col">
+                  <div class="well well-lg number-well text-center">
+                    <span class='number-well-text'>00</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="panel panel-default graph-panel">
-            <div class="panel-body">
-              <div class="pull-left">
-                BOTTOM GRAPH
-              </div>
-              <div class="pull-right">
-                <div class="well well-lg number-well">
-                  <span class='number-well-text col-md-offset-3'>00</span>
+          <div class="panel panel-default">
+            <div class="panel-body graph-panel-body">
+              <div class="row graph-row">
+                  <div class="col-md-10">
+                    <div id="content3">
+                      <div class="demo-container">
+                        <div  id="graph3" class="demo-placeholder">
+                          <canvas class="flot-base" ></canvas>
+                          <canvas class="flot-overlay"></canvas>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-md-2 number-box-col">
+                  <div class="well well-lg number-well text-center">
+                    <span class='number-well-text'>00</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+
         </div>
       </div>
 
@@ -215,7 +258,7 @@
                 <td>120 mg</td>
                 <td>Approximately 3:30 pm, prior to Mr. Man's admission to the ICU</td>
               </tr>
-              <tr> 
+              <tr>
                 <td>Morphine</td>
                 <td>1U</td>
                 <td>6:00 pm upon admission to ICU due to extreme leg pain</td>
@@ -260,5 +303,15 @@
         </div>
       </div>
     </div>
+    <script src="./flot_graphs/patient_graphs.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+          jQuery(function($) {
+            for(var i = 0; i < 4; ++i) {
+              detail_graphs(i);
+            }
+      });
+    });
+    </script>
   </body>
 </html>
