@@ -41,7 +41,7 @@
         "weight": 40,
         "allergies": [
           "Nuts",
-        "Cats",
+        "Cats"
         ],
         "cardiac": "true",
         "blood_pressure": "110/90",
