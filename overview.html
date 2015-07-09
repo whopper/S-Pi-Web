@@ -6,16 +6,16 @@
         <script src="./bower_components/jquery/dist/jquery.min.js"></script>
         <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="./bower_components/react-bootstrap/react-bootstrap.min.js"></script>
+        <script src="./bower_components/sockjs/sockjs.js"></script>
+        <script src="./bower_components/vertxbus/vertxbus.js"></script>
+        <script src="./bower_components/smoothie.js"></script>
+        <script src="./smoothie_graphs/overview_graphs.js"></script>
+        <script src="./s-pi.js"></script>
         <link href="./bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="./bower_components/bootstrap-theme-cosmo/cosmo.min.css" rel="stylesheet">
         <link href="./overview.css" rel="stylesheet">
-        <script src="./bower_components/flot/jquery.flot.js"></script>
-        <link href="./flot_graphs/flot_graphs.css" rel="stylesheet">
-        <script src="./curvedLines.js"></script>
-        <script src="./flot_graphs/overview_graphs.js"></script>
-        <script src="./bower_components/sockjs/sockjs.js"></script>
-        <script src="./bower_components/vertxbus/vertxbus.js"></script>
-        <script src="./s-pi.js"></script>
+        <link href="./smoothie_graphs/smoothie_graphs.css" rel="stylesheet">
+
     </head>
     <body>
         <nav class="navbar navbar-default">
@@ -104,8 +104,7 @@
                                 <div id="content1">
                                     <div class="demo-container">
                                       <div id="patient1" class="demo-placeholder">
-                                        <canvas class="flot-base" ></canvas>
-                                        <canvas class="flot-overlay"></canvas>
+                                        <canvas class="smoothie-chart" id='chart1'></canvas>
                                       </div>
                                     </div>
                                 </div>
@@ -154,8 +153,7 @@
                               <div id="content2">
                                   <div class="demo-container">
                                     <div id="patient2" class="demo-placeholder">
-                                      <canvas class="flot-base" ></canvas>
-                                      <canvas class="flot-overlay"></canvas>
+                                      <canvas class="smoothie-chart" id='chart2'></canvas>
                                   </div>
                                 </div>
                               </div>
@@ -210,8 +208,7 @@
                                 <div id="content3">
                                     <div class="demo-container">
                                       <div id="patient3" class="demo-placeholder">
-                                        <canvas class="flot-base" ></canvas>
-                                        <canvas class="flot-overlay"></canvas>
+                                        <canvas class="smoothie-chart" id='chart3'></canvas>
                                       </div>
                                     </div>
                                 </div>
@@ -260,8 +257,7 @@
                               <div id="content4">
                                 <div class="demo-container">
                                   <div id="patient4" class="demo-placeholder">
-                                    <canvas class="flot-base" ></canvas>
-                                    <canvas class="flot-overlay"></canvas>
+                                    <canvas class="smoothie-chart" id='chart4'></canvas>
                                   </div>
                                 </div>
                               </div>                      
@@ -367,45 +363,43 @@
 
     <!--  javaScript for the ecg graphs   -->
       <script type="text/javascript">
+        var eb = new vertx.EventBus("http://api.s-pi-demo.com/streambus");
         jQuery(function($) {
-            for(var i = 1; i <= 4; ++i) {
-                ecg_graph(i);
-            }
-           
-        $("#alert_table").html("\
-              <table class='table'>\
-                 <tr>\
-                    <tr>\
-                       <td><b>Name:</b> </td>\
-                       <td>Mr. Patient</td>\
-                    </tr>\
-                    <tr>\
-                       <td><b>Age:</b> </td>\
-                       <td>27</td>\
-                    </tr>\
-                    <tr>\
-                       <td><b>Bed:</b>  </td>\
-                       <td>243</td>\
-                    </tr>\
-                    <tr>\
-                       <td><b>Code:</b>  </td>\
-                       <td>23A</td>\
-                    </tr>\
-                    <tr>\
-                       <td><b>Status:</b>  </td>\
-                       <td>Active Warning</td>\
-                    </tr>\
-                    <tr>\
-                       <td><b>Alert Length:</b>  </td>\
-                       <td>162 seconds</td>\
-                    </tr>\
-                    <tr>\
-                       <td><b>Maximum Heart Rate:</b>  </td>\
-                       <td>155 BPM</td>\
-                    </tr>\
-                </table>\
-             ");
-           });
+            ecg_graph(eb);
+            $("#alert_table").html("\
+                  <table class='table'>\
+                     <tr>\
+                        <tr>\
+                           <td><b>Name:</b> </td>\
+                           <td>Mr. Patient</td>\
+                        </tr>\
+                        <tr>\
+                           <td><b>Age:</b> </td>\
+                           <td>27</td>\
+                        </tr>\
+                        <tr>\
+                           <td><b>Bed:</b>  </td>\
+                           <td>243</td>\
+                        </tr>\
+                        <tr>\
+                           <td><b>Code:</b>  </td>\
+                           <td>23A</td>\
+                        </tr>\
+                        <tr>\
+                           <td><b>Status:</b>  </td>\
+                           <td>Active Warning</td>\
+                        </tr>\
+                        <tr>\
+                           <td><b>Alert Length:</b>  </td>\
+                           <td>162 seconds</td>\
+                        </tr>\
+                        <tr>\
+                           <td><b>Maximum Heart Rate:</b>  </td>\
+                           <td>155 BPM</td>\
+                        </tr>\
+                    </table>\
+                 ");
+        });
       </script>
 
     <script type="text/javascript">

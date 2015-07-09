@@ -1,0 +1,64 @@
+input[type=checkbox] {
+  margin: 7px;
+}
+ 
+#header {
+  position: relative;
+  width: 500px;
+  margin: auto;
+}
+ 
+#header h2 {
+  margin-left: 10px;
+  vertical-align: middle;
+  font-size: 42px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #000;
+}
+ 
+#content {
+  width: 450px;
+  margin: 0 auto;
+  padding: 10px;
+}
+ 
+#footer {
+  margin-top: 25px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 12px;
+  color: #999;
+}
+ 
+.demo-container {
+  box-sizing: border-box;
+  width: 100%;
+  height: 50px;
+  background: #fff;
+  background: black;
+}
+ 
+.demo-placeholder {
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+  line-height: 1.2em;
+  padding: 0px;
+  position: relative;
+}
+ 
+.legend table {
+  border-spacing: 5px;
+}
+
+.smoothie-chart {
+  min-height:  100%;
+  max-height:  100%;
+  min-width:  100%;
+  max-width: 100%;
+  direction: ltr;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}

@@ -6,15 +6,14 @@
     <script src="./bower_components/jquery/dist/jquery.min.js"></script>
     <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="./bower_components/react-bootstrap/react-bootstrap.min.js"></script>
-    <link href="./bower_components/bootstrap-theme-cosmo/cosmo.min.css" rel="stylesheet">
-    <link href="./bower_components/patient.css" rel="stylesheet">
-    <script src="./bower_components/flot/jquery.flot.js"></script>
-    <script src="./bower_components/flot/jquery.flot.resize.js"></script>
-    <link href="./flot_graphs/patient_flot_graphs.css" rel="stylesheet">
-    <script src="./curvedLines.js"></script>
+    <script src="./bower_components/smoothie.js"></script>
     <script src="./bower_components/sockjs/sockjs.js"></script>
     <script src="./bower_components/vertxbus/vertxbus.js"></script>
+    <script src="./smoothie_graphs/patient_graphs.js"></script>
     <script src="./s-pi.js"></script>
+    <link href="./bower_components/bootstrap-theme-cosmo/cosmo.min.css" rel="stylesheet">
+    <link href="./bower_components/patient.css" rel="stylesheet">
+    <link href="./smoothie_graphs/patient_graphs.css" rel="stylesheet">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
@@ -63,8 +62,7 @@
                     <div id="content0">
                       <div class="demo-container">
                         <div  id="graph0" class="demo-placeholder">
-                          <canvas class="flot-base" ></canvas>
-                          <canvas class="flot-overlay"></canvas>
+                          <canvas class="smoothie-chart" id='chart1'></canvas>
                         </div>
                       </div>
                     </div>
@@ -85,8 +83,7 @@
                     <div id="content1">
                       <div class="demo-container">
                         <div  id="graph1" class="demo-placeholder">
-                          <canvas class="flot-base" ></canvas>
-                          <canvas class="flot-overlay"></canvas>
+                          <canvas class="smoothie-chart" id='chart2'></canvas>
                         </div>
                       </div>
                     </div>
@@ -107,8 +104,7 @@
                     <div id="content2">
                       <div class="demo-container">
                         <div  id="graph2" class="demo-placeholder">
-                          <canvas class="flot-base" ></canvas>
-                          <canvas class="flot-overlay"></canvas>
+                          <canvas class="smoothie-chart" id='chart3'></canvas>
                         </div>
                       </div>
                     </div>
@@ -129,8 +125,7 @@
                     <div id="content3">
                       <div class="demo-container">
                         <div  id="graph3" class="demo-placeholder">
-                          <canvas class="flot-base" ></canvas>
-                          <canvas class="flot-overlay"></canvas>
+                          <canvas class="smoothie-chart" id='chart4'></canvas>
                         </div>
                       </div>
                     </div>
@@ -306,10 +301,9 @@
     <script src="./flot_graphs/patient_graphs.js"></script>
     <script type="text/javascript">
       $(document).ready(function() {
-          jQuery(function($) {
-            for(var i = 0; i < 4; ++i) {
-              detail_graphs(i);
-            }
+        var eb = new vertx.EventBus("http://api.s-pi-demo.com/streambus");
+        jQuery(function($) {
+          detail_graphs(eb);
       });
     });
     </script>
