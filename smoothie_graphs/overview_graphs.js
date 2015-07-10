@@ -52,10 +52,27 @@ function ecg_graph(eb) {
     });
   }
 
+     function make_alert(dat1, dat2, dat3, dat4) { 
+            console.log("alert")
+            console.log(dat1)
+            console.log(dat2)
+            console.log(dat3)
+
+        eb.registerHandler(dat1[0], function(msg) {
+                $('#alertModal').modal('show');
+        });
+     }
+
   eb.onopen = function () {
     for (var i = neededGraphs.length - 1; i >= 0; i--) {
       startGraph(neededGraphs[i][0], neededGraphs[i][1], neededGraphs[i][2]);
     };
     setInterval(drawIt, 400);
+          $.when($.ajax("http://api.s-pi-demo.com/alerts/1"),
+                  $.ajax("http://api.s-pi-demo.com/alerts/2"),
+                  $.ajax("http://api.s-pi-demo.com/alerts/3"),
+                  $.ajax("http://api.s-pi-demo.com/alerts/4")
+              ).done(make_alert);
+ 
   }
 }
