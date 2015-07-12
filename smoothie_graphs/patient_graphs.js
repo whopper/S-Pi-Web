@@ -55,12 +55,13 @@ function detail_graphs(eb) {
   };
 
   eb.onopen = function () {
+    var timer;
     for (var i = neededGraphs.length - 1; i >= 0; i--) {
       startGraph(neededGraphs[i][0], neededGraphs[i][1], neededGraphs[i][2]);
     }
+    clearTimeout(timer);
+    timer = setTimeout(handleResize, 100);
     setInterval(drawIt, 400);
-    console.log('about to call resize');
-    handleResize;
   }
 }
 var handleResize = function () {
