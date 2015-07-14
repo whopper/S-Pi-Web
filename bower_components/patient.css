@@ -57,16 +57,37 @@ body {
 }
 
 .infoJumbotron {
-  padding-top: 21px;
-  padding-bottom: 21px;
-  padding-left: 21px;
-  padding-right: 21px;
+  padding-top: 11px;
+  padding-bottom: 11px;
+  padding-left: 22px;
+  padding-right: 22px;
 }
 
 .info-panel {
-  height: 261px;
+  height: 100%;
 }
 
+.info-title {
+  min-height: 19px;
+}
+.pic-column {
+  height: 240px;
+  padding-top: 23px;
+  padding-right: 0px;
+}
+
+.id-column {
+  height: 240px;
+  padding-left: 20px;
+}
+
+.name-text {
+  margin-bottom: 21px;
+}
+
+.clinical-row {
+  height: 229px;
+}
 .list-group-item {
   padding-bottom: 5px;
   font-size: 150%;
