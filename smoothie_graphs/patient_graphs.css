@@ -51,12 +51,6 @@ input[type=checkbox] {
 }
 
 .smoothie-chart {
-  min-height:  95%;
-  max-height:  95%;
-  min-width:  100%;
-  max-width: 100%;
-  direction: ltr;
-  position: absolute;
-  left: 0px;
-  top: 0px;
+  width:  100%;
+  height: auto;
 }
