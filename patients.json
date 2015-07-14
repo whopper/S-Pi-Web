@@ -11,6 +11,8 @@
         "case_id": 9923,
         "height": 120,
         "weight": 40,
+        "temperature": 37,
+        "heart-rate": 60,
         "allergies": [
           "Penicillin"
           ],
@@ -39,6 +41,8 @@
         "case_id": 9923,
         "height": 120,
         "weight": 40,
+        "temperature": 37.2,
+        "heart-rate": 70,
         "allergies": [
           "Nuts",
         "Cats"
@@ -68,6 +72,8 @@
         "case_id": 9921,
         "height": 123,
         "weight": 43,
+        "temperature": 36.5,
+        "heart-rate": 80,
         "allergies": [
           "Latex"
           ],
@@ -96,6 +102,8 @@
         "case_id": 9922,
         "height": 180,
         "weight": 60,
+        "temperature": 36.8,
+        "heart-rate": 90,
         "allergies": [
           ],
         "cardiac": "false",

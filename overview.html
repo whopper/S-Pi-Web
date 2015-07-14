@@ -11,6 +11,9 @@
         <script src="./bower_components/smoothie/smoothie.js"></script>
         <script src="./smoothie_graphs/overview_graphs.js"></script>
         <script src="./s-pi.js"></script>
+        <script>
+          window.addEventListener("load", loadPatientPanels);
+        </script>
         <link href="./bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="./bower_components/bootstrap-theme-cosmo/cosmo.min.css" rel="stylesheet">
         <link href="./overview.css" rel="stylesheet">
@@ -61,11 +64,11 @@
                 <!-- Top row patient boxes -->
                 <div class="row">
 
-                    <div class="col-xs-5 col-sm-5 patient_box">
+                    <div id="patient-0" class="col-xs-5 col-sm-5 patient_box">
                         <a href="./patient.html#0" >
                             <div class="row">
                                 <div class="col-xs-4 col-sm-4">
-                                    <h4>Mr. Patient</h4>
+                                    <h4 class="patient-name-text"></h4>
                                     <div class="thumbnail ">
                                         <img src=./images/patient.jpg alt="Patient Photo Not Available" width="100px"/>
                                     </div>
@@ -75,19 +78,19 @@
                                             <tbody>
                                                 <tr>
                                                     <td>Bed</td>
-                                                    <td>#231</td>
+                                                    <td class="patient-bed-number"></td>
                                                     <tr>
                                                         <tr>
                                                             <td>Temperature</td>
-                                                            <td>98</tD>
+                                                            <td class="patient-temperature"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Blood Pressure</td>
-                                                            <td>160/90</td>
+                                                            <td class="patient-blood-pressure"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Heart Rate</td>
-                                                            <td>90</td>
+                                                            <td class="patient-heart-rate"></td>
                                                         </tr>
                                                    </tr>
                                             </tbody>
@@ -105,11 +108,11 @@
                             </div>
                         </a>
                     </div>
-                    <div class="col-xs-5 col-sm-5 patient_box">
+                    <div id="patient-1" class="col-xs-5 col-sm-5 patient_box">
                         <a href="./patient.html#1" >
                             <div class="row">
-                                <div class="col-xs-4 col-sm-4 ">
-                                    <h4>Mr. Patient</h4>
+                                <div class="col-xs-4 col-sm-4">
+                                    <h4 class="patient-name-text"></h4>
                                     <div class="thumbnail ">
                                         <img src=./images/patient.jpg alt="Patient Photo Not Available" width="100px"/>
                                     </div>
@@ -119,20 +122,21 @@
                                             <tbody>
                                                 <tr>
                                                     <td>Bed</td>
-                                                    <td>#231</td>
+                                                    <td class="patient-bed-number"></td>
                                                     <tr>
                                                         <tr>
                                                             <td>Temperature</td>
-                                                            <td>98</tD>
+                                                            <td class="patient-temperature"></td>
                                                         </tr>
-                                                        <tr>                    
+                                                        <tr>
                                                             <td>Blood Pressure</td>
-                                                            <td>160/90</td>
+                                                            <td class="patient-blood-pressure"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Heart Rate</td>
-                                                            <td>90</td>
+                                                            <td class="patient-heart-rate"></td>
                                                         </tr>
+                                                   </tr>
                                             </tbody>
                                     </table>
                                 </div>
@@ -154,11 +158,11 @@
                 <!-- second row patient boxes -->
                 <div class="row">
 
-                    <div class="col-xs-5 col-sm-5 patient_box">
+                    <div id="patient-2" class="col-xs-5 col-sm-5 patient_box">
                         <a href="./patient.html#2">
                             <div class="row">
                                 <div class="col-xs-4 col-sm-4">
-                                    <h4>Mr. Patient</h4>
+                                    <h4 class="patient-name-text"></h4>
                                     <div class="thumbnail ">
                                         <img src=./images/patient.jpg alt="Patient Photo Not Available" width="100px"/>
                                     </div>
@@ -168,22 +172,23 @@
                                             <tbody>
                                                 <tr>
                                                     <td>Bed</td>
-                                                    <td>#231</td>
+                                                    <td class="patient-bed-number"></td>
                                                     <tr>
                                                         <tr>
                                                             <td>Temperature</td>
-                                                            <td>98</tD>
+                                                            <td class="patient-temperature"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Blood Pressure</td>
-                                                            <td>160/90</td>
+                                                            <td class="patient-blood-pressure"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Heart Rate</td>
-                                                            <td>90</td>
+                                                            <td class="patient-heart-rate"></td>
                                                         </tr>
+                                                   </tr>
                                             </tbody>
-                                    </table>      
+                                    </table>
                                 </div>
                             </div>
                             <div class="thumbnail">
@@ -197,11 +202,11 @@
                             </div>
                         </a>
                     </div>
-                    <div class="col-xs-5 col-sm-5 patient_box">
+                    <div id="patient-3" class="col-xs-5 col-sm-5 patient_box">
                         <a href="./patient.html#3">
                             <div class="row">
                                 <div class="col-xs-4 col-sm-4">
-                                    <h4>Mr. Patient</h4>
+                                    <h4 class="patient-name-text"></h4>
                                     <div class="thumbnail ">
                                         <img src=./images/patient.jpg alt="Patient Photo Not Available" width="100px"/>
                                     </div>
@@ -211,22 +216,23 @@
                                             <tbody>
                                                 <tr>
                                                     <td>Bed</td>
-                                                    <td>#231</td>
+                                                    <td class="patient-bed-number"></td>
                                                     <tr>
                                                         <tr>
                                                             <td>Temperature</td>
-                                                            <td>98</tD>
+                                                            <td class="patient-temperature"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Blood Pressure</td>
-                                                            <td>160/90</td>
+                                                            <td class="patient-blood-pressure"></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Heart Rate</td>
-                                                            <td>90</td>
+                                                            <td class="patient-heart-rate"></td>
                                                         </tr>
+                                                   </tr>
                                             </tbody>
-                                    </table>        
+                                    </table>
                                 </div>
                             </div>
                             <div class="thumbnail">

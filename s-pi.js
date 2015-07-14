@@ -1,9 +1,29 @@
-window.addEventListener("load", loadData);
-window.addEventListener("hashchange", loadData);
 
 function loadData() {
   id = window.location.hash.substring(1);
   loadPatient(id);
+}
+
+function loadPatientPanels(id_string) {
+  //console.log("Hi, this is the loadPatientPanelFunction");
+  //var patient_id = id_string.split("-")[2];
+  //loadPatientPanel(patient_id);
+  loadPatientPanel(0);
+  loadPatientPanel(1);
+  loadPatientPanel(2);
+  loadPatientPanel(3);
+}
+
+function loadPatientPanel(id) {
+  $.getJSON('/patients.json', function(data) {
+    var patient_data = data['patients'][id];
+    var patient_obj = $("#patient-" + id);
+    patient_obj.find(".patient-name-text").html(patient_data["name"]);
+    patient_obj.find(".patient-bed-number").html(patient_data["bed"]);
+    patient_obj.find(".patient-temperature").html(patient_data["clinical-data"]["temperature"]);
+    patient_obj.find(".patient-blood-pressure").html(patient_data["clinical-data"]["blood_pressure"]);
+    patient_obj.find(".patient-heart-rate").html(patient_data["clinical-data"]["heart-rate"]);
+  });
 }
 
 function loadPatient(id) {
