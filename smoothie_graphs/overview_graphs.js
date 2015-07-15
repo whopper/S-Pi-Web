@@ -26,6 +26,7 @@ function ecg_graph(eb) {
         eb.registerHandler(channelName, function(msg) {
           currentBuffers[channelName].push(msg.data);
         });
+         
       }
     )
   }
@@ -97,7 +98,18 @@ function ecg_graph(eb) {
         this.id = msg.patient_id;
         this.interval = msg.interval;
         this.signame = msg.signame;
-        
+
+        var alert_hours = alert_time.getHours();
+        var alert_mins = alert_time.getMinutes();
+        if (alert_hours < 10) {
+           alert_hours = "0" + alert_hours;
+        }
+        if (alert_mins < 10) {
+           alert_mins = "0" + alert_mins;
+        }
+        this.alert_time = alert_hours + ":" + alert_mins;
+     
+
         $.getJSON('/patients.json', function(data) {
             self.name = data['patients'][(self.id)]['name'];
             self.age =  data['patients'][(self.id)]['age'];
