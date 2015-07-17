@@ -54,22 +54,17 @@
       </div><!-- /.container-fluid -->
     </nav>
 
-
     <div id='mainContainer'class="container-fluid" >
+      <!-- Left hand areafor streaming graphs -->
       <div id='graphArea' class='col-md-8 graphBox'>
         <div class="jumbotron graphJumbotron">
-
           <div class="panel panel-default">
             <div class="panel-body graph-panel-body">
               <div class="row graph-row">
-                  <div class="col-md-10">
-                    <div id="content0">
-                      <div class="demo-container">
-                        <div  id="graph0" class="demo-placeholder">
-                          <canvas class="smoothie-chart" id='chart1' height='92px' width='442'></canvas>
-                        </div>
-                      </div>
-                    </div>
+                <div class="col-md-10">
+                  <div class="demo-container">
+                    <canvas class="smoothie-chart" id='chart1' height='92px' width='442'></canvas>
+                  </div>
                 </div>
                 <div class="col-md-2 number-box-col">
                   <div class="well well-lg number-well text-center">
@@ -83,14 +78,10 @@
           <div class="panel panel-default">
             <div class="panel-body graph-panel-body">
               <div class="row graph-row">
-                  <div class="col-md-10">
-                    <div id="content1">
-                      <div class="demo-container">
-                        <div  id="graph1" class="demo-placeholder">
-                          <canvas class="smoothie-chart" id='chart2' height='92px' width='442'></canvas>
-                        </div>
-                      </div>
-                    </div>
+                <div class="col-md-10">
+                  <div class="demo-container">
+                    <canvas class="smoothie-chart" id='chart2' height='92px' width='442'></canvas>
+                  </div>
                 </div>
                 <div class="col-md-2 number-box-col">
                   <div class="well well-lg number-well text-center">
@@ -104,14 +95,10 @@
           <div class="panel panel-default">
             <div class="panel-body graph-panel-body">
               <div class="row graph-row">
-                  <div class="col-md-10">
-                    <div id="content2">
-                      <div class="demo-container">
-                        <div  id="graph2" class="demo-placeholder">
-                          <canvas class="smoothie-chart" id='chart3' height='92px' width='442'></canvas>
-                        </div>
-                      </div>
-                    </div>
+                <div class="col-md-10">
+                  <div class="demo-container">
+                    <canvas class="smoothie-chart" id='chart3' height='92px' width='442'></canvas>
+                  </div>
                 </div>
                 <div class="col-md-2 number-box-col">
                   <div class="well well-lg number-well text-center">
@@ -125,14 +112,10 @@
           <div class="panel panel-default">
             <div class="panel-body graph-panel-body">
               <div class="row graph-row">
-                  <div class="col-md-10">
-                    <div id="content3">
-                      <div class="demo-container">
-                        <div  id="graph3" class="demo-placeholder">
-                          <canvas class="smoothie-chart" id='chart4' height='92px' width='442'></canvas>
-                        </div>
-                      </div>
-                    </div>
+                <div class="col-md-10">
+                  <div class="demo-container">
+                    <canvas class="smoothie-chart" id='chart4' height='92px' width='442'></canvas>
+                  </div>
                 </div>
                 <div class="col-md-2 number-box-col">
                   <div class="well well-lg number-well text-center">
@@ -142,59 +125,55 @@
               </div>
             </div>
           </div>
-
         </div>
-      </div>
+      </div><!-- /.graphArea -->
 
+      <!-- Right hand area for patient info, picture and clinical data -->
       <div id='infoArea' class='col-md-4 infoBox'>
-        <div class="jumbotron graphJumbotron">
-
+        <div class="jumbotron infoJumbotron">
           <div class="panel info-panel panel-success">
             <div class="panel-heading">
-              <h3 class="panel-title">All Fine Panel</h3>
+              <h3 class="panel-title info-title"> </h3>
             </div>
             <div class="panel-body">
-              <div class="col-sm-6 col-md-4 ">
-                <a href="#" class="thumbnail">
-                  <img src="patient_icon.jpg" alt="Patient Image Here">
-                </a>
+              <div id='top' class="row">
+                <div class="col-sm-6 col-md-5 pic-column">
+                  <a href="#" class="thumbnail">
+                    <img src="patient_icon.jpg" alt="Patient Image Here">
+                  </a>
+                </div>
+                <div class="col-sm-6 col-md-7 id-column">
+                  <h2 class="name-text"></h2>
+                  <table class="table table-bordered">
+                    <tbody>
+                      <tr>
+                        <td>Age</td>
+                        <td id="age"></td>
+                      </tr>
+                      <tr>
+                        <td>Bed</td>
+                        <td id="bed"></td>
+                      </tr>
+                      <tr>
+                        <td>Status</td>
+                        <td id="status"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
-              <div class="col-sm-6 col-md-8 ">
-                <h2 class="name-text"></h2>
-                <table class="table table-bordered">
-                  <tbody>
-                    <tr>
-                      <td>Age</td>
-                      <td id="age"></td>
-                    </tr>
-                      <td>Bed</td>
-                      <td id="bed"></td>
-                    </tr>
-                    </tr>
-                      <td>Status</td>
-                      <td id="status"></td>
-                    </tr>
-                  </tbody>
-                </table>
+              <div class="row clinical-row">
+                <ul class="list-group">
+                  <a href="#" class="list-group-item" data-toggle="modal" data-target="#dataModal">Clinical Data</a>
+                  <a href="#" class="list-group-item" data-toggle="modal" data-target="#labsModal">Lab Data</a>
+                  <a href="#" class="list-group-item" data-toggle="modal" data-target="#medsModal">Medications</a>
+                  <a href="#" class="list-group-item" data-toggle="modal" data-target="#progressModal">Progress Notes</a>
+                </ul>
               </div>
-            </div>
-          </div>
-
-          <div class="panel info-panel panel-danger">
-            <div class="panel-heading">
-              <h3 class="panel-title">Danger Panel</h3>
-            </div>
-            <div class="panel-body">
-              <ul class="list-group">
-                <a href="#" class="list-group-item" data-toggle="modal" data-target="#dataModal">Clinical Data</a>
-                <a href="#" class="list-group-item" data-toggle="modal" data-target="#labsModal">Lab Data</a>
-                <a href="#" class="list-group-item" data-toggle="modal" data-target="#medsModal">Medications</a>
-                <a href="#" class="list-group-item" data-toggle="modal" data-target="#progressModal">Progress Notes</a>
-              </ul>
             </div>
           </div>
         </div>
-      </div>
+      </div><!-- / infoArea -->
     </div>
 
     <!-- Modals HTML -->
