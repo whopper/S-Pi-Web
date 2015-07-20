@@ -2,6 +2,8 @@
 // points and populating the flot graphs. This fucntion is specifically.
 // for the ecg graphs on the patient graphs.
 var currentGraphs = [];
+var graphOff = 0;
+
 function detail_graphs(eb) {
   var currentBuffers = {};
   var neededGraphs = [];
@@ -12,6 +14,27 @@ function detail_graphs(eb) {
 
   console.log("hi");
   console.log(neededGraphs);
+
+$("#graphs").click(function() {
+  var egraph = document.getElementById("graphs");
+  if (graphOff == 0) {
+     for (var i = currentGraphs.length-1; i >= 0; i--) {
+        currentGraphs[i].chart.stop();
+     }
+     graphOff = 1;
+     egraph.innerHTML = "Turn Graphs ON";
+     alert('Graphs have been turned OFF');
+  }
+  else {
+     for (var i = currentGraphs.length-1; i >= 0; i--) {
+        currentGraphs[i].chart.start();
+     }
+     graphOff = 0;
+     egraph.innerHTML = "Turn Graphs OFF";
+     alert('Graphs have been turned ON');
+  }
+});
+
 
   var startGraph = function (stream, type, id) {
     $.when($.ajax('http://api.s-pi-demo.com/stream/'+stream+'/'+type+'/'+id)).done(
