@@ -242,7 +242,7 @@
                                     <canvas class="smoothie-chart" id='chart4' height="50px" width="415px" ></canvas>
                                   </div>
                                 </div>
-                              </div>                      
+                              </div>
                             </div>
                         </a>
                     </div>
@@ -255,7 +255,7 @@
                 <div class="col-sm-2">
 
                     <!-- Alert panel -->
-                    <div class="panel panel-default alert_box" style="margin-left:-75px" > 
+                    <div class="panel panel-default alert_box" style="margin-left:-75px" >
                         <div class="panel-heading">
                             <h3 class="panel-title">ALERTS</h3>
                         </div>
@@ -263,21 +263,21 @@
                           <!--  <div class="panel panel-danger alert-notification"data-toggle="modal" data-target="#alertModal">
                                 <div class="panel-heading">
                                     <div class="panel-title">
-                                        CODE: BLUE 
+                                        CODE: BLUE
                                     </div>
                                 </div>
                                 <div class="panel-body">
-                                    Mr. Patient - Bed #231 
+                                    Mr. Patient - Bed #231
                                 </div>
                             </div>
                             <div class="panel panel-warning alert-notification"data-toggle="modal" data-target="#alertModal">
                                 <div class="panel-heading">
                                     <div class="panel-title">
-                                        CODE: BLUE 
+                                        CODE: BLUE
                                     </div>
                                 </div>
                                 <div class="panel-body">
-                                    Mr. Patient - Bed #231 
+                                    Mr. Patient - Bed #231
                                 </div>
                              </div>  -->
                         </div>
@@ -307,22 +307,24 @@
             </div>
         </div>
 
-    <!--  javaScript for the ecg graphs   -->
+      <!--  javaScript for the ecg graphs   -->
       <script type="text/javascript">
-        var eb = new vertx.EventBus("http://api.s-pi-demo.com/streambus");
-        jQuery(function($) {
-            ecg_graph(eb);
-                    });
+        $(document).ready(function() {
+          var eb = new vertx.EventBus("http://api.s-pi-demo.com/streambus");
+          jQuery(function($) {
+              ecg_graph(eb);
+          });
+        });
+      </script>
 
-     </script>      
-<!--
-        var timer;
-        window.onresize = function () {
-            clearTimeout(timer);
-            timer = setTimeout(handleResize, 100);
-        };
--->
-      
+     <script type="text/javascript">
+       var timer;
+       window.onresize = function () {
+           clearTimeout(timer);
+           timer = setTimeout(handleResize, 100);
+       };
+     </script>
+
 <!--
     <script type="text/javascript">
         jQuery(function($) {

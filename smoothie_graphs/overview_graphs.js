@@ -1,6 +1,7 @@
 // JavaScript function for calling the api to get the graph data
 // points and populating the flot graphs. This fucntion is specifically.
 // for the ecg graphs on the overview page.
+var currentGraphs = [];
 function ecg_graph(eb) {
     var currentBuffers = {};
     var currentGraphs = [];
@@ -11,27 +12,24 @@ function ecg_graph(eb) {
     neededGraphs.push(['waveform', 'bp', 3]);
     neededGraphs.push(['waveform', 'bp', 4]);
 
-    console.log("hi")
-        console.log(neededGraphs)
-        var startGraph = function (stream, type, id) {
-            $.when($.ajax('http://api.s-pi-demo.com/stream/'+stream+'/'+type+'/'+id)).done(
-                function (data) {
-                    var channelName = data;
-                    var startTime = Date.now();
-                    currentBuffers[channelName] = new Array();
-                    var series = makeSmoothie('chart' + id);
-                    currentGraphs.push({"channel": channelName,
-                        "startTime": startTime,
-                        "buffer": currentBuffers[channelName],
-                        "graph": series});
-                    eb.registerHandler(channelName, function(msg) {
-                        currentBuffers[channelName].push(msg.data);
-                    });
-                }
-            )
-        }
-
-
+    var startGraph = function (stream, type, id) {
+        $.when($.ajax('http://api.s-pi-demo.com/stream/'+stream+'/'+type+'/'+id)).done(
+            function (data) {
+                var channelName = data;
+                var startTime = Date.now();
+                currentBuffers[channelName] = new Array();
+                var chart = makeSmoothie('chart' + id);
+                currentGraphs.push({"channel": channelName,
+                    "startTime": startTime,
+                    "buffer": currentBuffers[channelName],
+                    "graph": chart.series,
+                    "chart": chart.chart});
+                eb.registerHandler(channelName, function(msg) {
+                    currentBuffers[channelName].push(msg.data);
+                });
+            }
+        )
+    };
 
     var makeSmoothie = function (id) {
         var chart = new SmoothieChart({millisPerPixel:8, strokeStyle:'green'});
@@ -39,8 +37,8 @@ function ecg_graph(eb) {
         var series = new TimeSeries();
         chart.addTimeSeries(series, {lineWidth:0.7,strokeStyle:'green'});
         chart.streamTo(canvas, 1720);
-        return series;
-    }
+        return {"series": series, "chart": chart};
+    };
 
     var drawIt = function () {
         currentGraphs.forEach(function (item, idx, thisArray) {
@@ -49,31 +47,35 @@ function ecg_graph(eb) {
                 for (var i = data.length - 1; i >= 0; i--) {
                     item["graph"].append(item["startTime"], data[i].SIGNAL);
                     item["startTime"] += 8;
-                };
+                }
             }
         });
-    }
+    };
 
     eb.onopen = function () {
-        for (var i = neededGraphs.length - 1; i >= 0; i--) {
-            startGraph(neededGraphs[i][0], neededGraphs[i][1], neededGraphs[i][2]);
-        };
+      var timer;
+      for (var i = neededGraphs.length - 1; i >= 0; i--) {
+        startGraph(neededGraphs[i][0], neededGraphs[i][1], neededGraphs[i][2]);
+      }
+      clearTimeout(timer);
+      timer = setTimeout(handleResize, 100);
+      setInterval(drawIt, 400);
 
-        setInterval(drawIt, 400);
+      setInterval(drawIt, 400);
 
-        $.when($.ajax("http://api.s-pi-demo.com/alerts/1"),
-                $.ajax("http://api.s-pi-demo.com/alerts/2"),
-                $.ajax("http://api.s-pi-demo.com/alerts/3"),
-                $.ajax("http://api.s-pi-demo.com/alerts/4")
-              ).done(get_alert);
+      $.when($.ajax("http://api.s-pi-demo.com/alerts/1"),
+              $.ajax("http://api.s-pi-demo.com/alerts/2"),
+              $.ajax("http://api.s-pi-demo.com/alerts/3"),
+              $.ajax("http://api.s-pi-demo.com/alerts/4")
+            ).done(get_alert);
 
     }
 
-    function get_alert(dat1, dat2, dat3, dat4) { 
+    function get_alert(dat1, dat2, dat3, dat4) {
 
         eb.registerHandler(dat1[0], function(msg) {
             make_alert(msg);
-        });  
+        });
     }
 
     function make_alert(msg) {
@@ -123,8 +125,7 @@ function ecg_graph(eb) {
                         </tr>\
                     </table>\
                 </div>\
-            ");    
-
+            ");
             $('#alertModal').modal('show');
         }
 
@@ -157,4 +158,11 @@ function ecg_graph(eb) {
     }
 
 }
-
+var handleResize = function () {
+  for (var i = 0; i < currentGraphs.length; i++) {
+    console.log('resized' + i);
+    var mycanvas = currentGraphs[i].chart.canvas;
+    mycanvas.width = mycanvas.parentNode.offsetWidth;
+    currentGraphs[i].chart.resize();
+  }
+};
