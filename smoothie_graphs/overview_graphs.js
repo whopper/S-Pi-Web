@@ -11,6 +11,9 @@ function ecg_graph(eb) {
     neededGraphs.push(['waveform', 'bp', 2]);
     neededGraphs.push(['waveform', 'bp', 3]);
     neededGraphs.push(['waveform', 'bp', 4]);
+    var graphOff = 0;
+    var alertOff = 0;
+    var chartArray = [];
 
     var startGraph = function (stream, type, id) {
         $.when($.ajax('http://api.s-pi-demo.com/stream/'+stream+'/'+type+'/'+id)).done(
@@ -31,12 +34,48 @@ function ecg_graph(eb) {
         )
     };
 
+    $("#graph").click(function() {
+      var egraph = document.getElementById("graph");
+      if (graphOff == 0) {
+         for (var i = chartArray.length-1; i >= 0; i--) {
+            chartArray[i].stop();
+         }
+         graphOff = 1;
+         egraph.innerHTML = "Turn Graphs ON";
+         alert('Graphs have been turned OFF');
+      }
+      else {
+         for (var i = chartArray.length-1; i >= 0; i--) {
+            chartArray[i].start();
+         }
+         graphOff = 0;
+         egraph.innerHTML = "Turn Graphs OFF";
+         alert('Graphs have been turned ON');
+      }
+    });
+
+    $("#alerts").click(function() {
+      var ealert = document.getElementById("alerts");
+      if (alertOff == 0) {
+         alertOff = 1;
+         ealert.innerHTML = "Turn Alerts ON";
+         alert('Alerts have been turned OFF');
+      }
+      else {
+         alertOff = 0;
+         ealert.innerHTML = "Turn Alerts OFF";
+         alert('Alerts have been turned ON');
+      }
+
+    });
+
     var makeSmoothie = function (id) {
         var chart = new SmoothieChart({millisPerPixel:8, strokeStyle:'green'});
         var canvas = document.getElementById(id);
         var series = new TimeSeries();
         chart.addTimeSeries(series, {lineWidth:0.7,strokeStyle:'green'});
         chart.streamTo(canvas, 1720);
+        chartArray[chartArray.length] = chart;
         return {"series": series, "chart": chart};
     };
 
@@ -126,7 +165,9 @@ function ecg_graph(eb) {
                     </table>\
                 </div>\
             ");
-            $('#alertModal').modal('show');
+            if (alertOff == 0) {
+               $('#alertModal').modal('show');
+            }
         }
 
         $.getJSON('/patients.json', function(data) {
