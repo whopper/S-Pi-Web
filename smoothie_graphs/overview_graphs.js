@@ -4,7 +4,6 @@
 var currentGraphs = [];
 function ecg_graph(eb) {
     var currentBuffers = {};
-    var currentGraphs = [];
     var neededGraphs = [];
     var counter = 0;
     neededGraphs.push(['waveform', 'bp', 1]);
@@ -97,9 +96,9 @@ function ecg_graph(eb) {
         startGraph(neededGraphs[i][0], neededGraphs[i][1], neededGraphs[i][2]);
       }
       clearTimeout(timer);
+      console.log("before hnadle resize timer");
       timer = setTimeout(handleResize, 100);
-      setInterval(drawIt, 400);
-
+      console.log("after hnadle resize timer, before setinterval drawit");
       setInterval(drawIt, 400);
 
       $.when($.ajax("http://api.s-pi-demo.com/alerts/1"),
@@ -200,8 +199,9 @@ function ecg_graph(eb) {
 
 }
 var handleResize = function () {
+  console.log('currentgraphslength is:' + currentGraphs.length);
   for (var i = 0; i < currentGraphs.length; i++) {
-    console.log('resized' + i);
+    console.log('resizing' + i);
     var mycanvas = currentGraphs[i].chart.canvas;
     mycanvas.width = mycanvas.parentNode.offsetWidth;
     currentGraphs[i].chart.resize();
