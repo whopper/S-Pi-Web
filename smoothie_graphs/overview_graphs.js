@@ -6,16 +6,16 @@ function ecg_graph(eb) {
     var currentBuffers = {};
     var neededGraphs = [];
     var counter = 0;
-    neededGraphs.push(['waveform', 'bp', 1]);
-    neededGraphs.push(['waveform', 'bp', 2]);
-    neededGraphs.push(['waveform', 'bp', 3]);
-    neededGraphs.push(['waveform', 'bp', 4]);
+    neededGraphs.push(['waveform', 'ECG', 1]);
+    neededGraphs.push(['waveform', 'ECG', 2]);
+    neededGraphs.push(['waveform', 'ECG', 3]);
+    neededGraphs.push(['waveform', 'ECG', 4]);
     var graphOff = 0;
     var alertOff = 0;
     var chartArray = [];
 
     var startGraph = function (stream, type, id) {
-        $.when($.ajax('http://api.s-pi-demo.com/stream/'+stream+'/'+type+'/'+id)).done(
+        $.when($.ajax('http://api.s-pi-demo.com/stream/'+stream+'/'+type+'/'+(id-1))).done(
             function (data) {
                 var channelName = data;
                 var startTime = Date.now();
@@ -99,6 +99,7 @@ function ecg_graph(eb) {
       timer = setTimeout(handleResize, 100);
       setInterval(drawIt, 400);
 
+      console.log("Onopen");
       $.when($.ajax("http://api.s-pi-demo.com/alerts/1"),
               $.ajax("http://api.s-pi-demo.com/alerts/2"),
               $.ajax("http://api.s-pi-demo.com/alerts/3"),
@@ -109,21 +110,24 @@ function ecg_graph(eb) {
 
     function get_alert(dat1, dat2, dat3, dat4) {
 
-        eb.registerHandler(dat1[0], function(msg) {
-            make_alert(msg);
+        eb.registerHandler(dat1[0], function(array) {
+            array.data.forEach(make_alert);
         });
     }
 
     function make_alert(msg) {
+      console.log("make_alert");
+      console.log(msg);
         var Alert = {};
-        Alert.alert_msg = msg.alert_msg;
-        Alert.action_msg = msg.action_msg;
+        Alert.alert_msg = msg.ALERT_MSG;
+        Alert.action_msg = msg.ACTION_MSG;
         Alert.alert_status = "Active Warning";
-        Alert.alert_time = new Date(msg.ts);
-        Alert.id = msg.patient_id;
-        Alert.interval = msg.interval;
-        Alert.signame = msg.signame;
+        Alert.alert_time = new Date(msg.TS);
+        Alert.id = msg.PATIENT_ID;
+        Alert.interval = msg.INTERVAL;
+        Alert.signame = msg.SIGNAME;
 
+      console.log(Alert.id);
         function render_alert() {
             console.log(Alert);
             $("#alert_table").html("\
@@ -167,10 +171,10 @@ function ecg_graph(eb) {
             }
         }
 
-        $.getJSON('/patients.json', function(data) {
-            Alert.name = data['patients'][(Alert.id)]['name'];
-            Alert.age =  data['patients'][(Alert.id)]['age'];
-            Alert.bed =  data['patients'][(Alert.id)]['bed'];
+        $.getJSON('http://api.s-pi-demo.com/patients', function(data) {
+            Alert.name = data[(Alert.id)]['name'];
+            Alert.age =  data[(Alert.id)]['age'];
+            Alert.bed =  data[(Alert.id)]['bed'];
             render_alert();
 
             counter = counter +1;
