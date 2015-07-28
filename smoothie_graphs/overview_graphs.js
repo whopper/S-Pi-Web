@@ -166,16 +166,16 @@ function ecg_graph(eb) {
                     </table>\
                 </div>\
             ");
-            if (alertOff == 0) {
-               $('#alertModal').modal('show');
-            }
+             $('#alertModal').modal('show');
         }
 
         $.getJSON('http://api.s-pi-demo.com/patients', function(data) {
             Alert.name = data[(Alert.id)]['name'];
             Alert.age =  data[(Alert.id)]['age'];
             Alert.bed =  data[(Alert.id)]['bed'];
-            render_alert();
+            if (alertOff == 0) {
+              render_alert();
+            }
 
             counter = counter +1;
 
