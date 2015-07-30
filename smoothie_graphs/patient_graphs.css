@@ -40,3 +40,7 @@ input[type=checkbox] {
   width:  100%;
   height: auto;
 }
+
+.number-well-text {
+  font-size: 70%;
+}

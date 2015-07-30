@@ -7,10 +7,10 @@ var graphOff = 0;
 function detail_graphs(eb) {
   var currentBuffers = {};
   var neededGraphs = [];
-  neededGraphs.push(['waveform', 'bp', 1]);
-  neededGraphs.push(['waveform', 'bp', 2]);
-  neededGraphs.push(['waveform', 'bp', 3]);
-  neededGraphs.push(['waveform', 'bp', 4]);
+  neededGraphs.push(['waveform', 'ECG', 1]);
+  neededGraphs.push(['waveform', 'ABP', 2]);
+  neededGraphs.push(['waveform', 'RESP', 3]);
+  neededGraphs.push(['waveform', 'PAP', 4]);
 
   console.log("hi");
   console.log(neededGraphs);
@@ -37,7 +37,7 @@ $("#graphs").click(function() {
 
 
   var startGraph = function (stream, type, id) {
-    $.when($.ajax('http://api.s-pi-demo.com/stream/'+stream+'/'+type+'/'+id)).done(
+    $.when($.ajax('http://api.s-pi-demo.com/stream/'+stream+'/'+type+'/'+(id-1))).done(
       function (data) {
         var channelName = data;
         var startTime = Date.now();
