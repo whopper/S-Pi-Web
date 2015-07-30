@@ -72,7 +72,7 @@ function ecg_graph(eb) {
         var chart = new SmoothieChart({millisPerPixel:8, strokeStyle:'green'});
         var canvas = document.getElementById(id);
         var series = new TimeSeries();
-        chart.addTimeSeries(series, {lineWidth:0.7,strokeStyle:'green'});
+        chart.addTimeSeries(series, {lineWidth:2,strokeStyle:'green'});
         chart.streamTo(canvas, 1720);
         chartArray[chartArray.length] = chart;
         return {"series": series, "chart": chart};
@@ -92,6 +92,7 @@ function ecg_graph(eb) {
 
     eb.onopen = function () {
       var timer;
+      eb.registerHandler("restart", handleRestart);
       for (var i = neededGraphs.length - 1; i >= 0; i--) {
         startGraph(neededGraphs[i][0], neededGraphs[i][1], neededGraphs[i][2]);
       }
@@ -207,3 +208,9 @@ var handleResize = function () {
     currentGraphs[i].chart.resize();
   }
 };
+
+var handleRestart = function (newtime) {
+  currentGraphs.forEach(function(item, idx, thisArray) {
+    item.startTime = newtime;
+  });
+}
