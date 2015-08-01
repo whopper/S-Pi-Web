@@ -5,7 +5,7 @@ function loadData() {
 }
 
 function loadPatientPanels(id_string) {
-  //console.log("Hi, this is the loadPatientPanelFunction");
+  console.log("Hi, this is the loadPatientPanelFunction");
   //var patient_id = id_string.split("-")[2];
   //loadPatientPanel(patient_id);
   loadPatientPanel(0);
@@ -15,14 +15,14 @@ function loadPatientPanels(id_string) {
 }
 
 function loadPatientPanel(id) {
-  $.getJSON('/patients.json', function(data) {
-    var patient_data = data['patients'][id];
+  $.getJSON('http://api.s-pi-demo.com/patients', function(data) {
+    var patient_data = data[id+1];
     var patient_obj = $("#patient-" + id);
     patient_obj.find(".patient-name-text").html(patient_data["name"]);
     patient_obj.find(".patient-bed-number").html(patient_data["bed"]);
-    patient_obj.find(".patient-temperature").html(patient_data["clinical-data"]["temperature"]);
-    patient_obj.find(".patient-blood-pressure").html(patient_data["clinical-data"]["blood_pressure"]);
-    patient_obj.find(".patient-heart-rate").html(patient_data["clinical-data"]["heart-rate"]);
+    patient_obj.find(".patient-temperature").html(patient_data["temperature"]);
+    patient_obj.find(".patient-blood-pressure").html(patient_data["blood_pressure"]);
+    patient_obj.find(".patient-heart-rate").html(patient_data["heart-rate"]);
   });
 }
 
