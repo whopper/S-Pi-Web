@@ -29,6 +29,7 @@ function loadPatientPanel(id) {
 function loadPatient(id) {
   $.getJSON('/patients.json', function(data) {
     patient_data = data['patients'][id];
+    $(document).prop('title', 'S-Pi Patient Information: ' + patient_data["name"]);
     $( ".name-text").html(patient_data["name"]);
     $( "#age").html(patient_data["age"]);
     $( "#bed").html(patient_data["bed"]);
