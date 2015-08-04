@@ -60,7 +60,7 @@ $("#graphs").click(function() {
     var chart = new SmoothieChart({millisPerPixel:8, strokeStyle:'green'});
     var canvas = document.getElementById(id);
     var series = new TimeSeries();
-    chart.addTimeSeries(series, {lineWidth:0.7,strokeStyle:'green'});
+    chart.addTimeSeries(series, {lineWidth:2,strokeStyle:'green'});
     chart.streamTo(canvas, 1720);
     return {"series": series, "chart": chart};
   };
