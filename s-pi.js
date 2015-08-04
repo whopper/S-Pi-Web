@@ -2,16 +2,20 @@
 function loadData() {
   id = window.location.hash.substring(1);
   loadPatient(id);
+  for (i = 0; i < 4; i++) {
+     patientsNavbar(i);
+  }
 }
 
 function loadPatientPanels(id_string) {
   console.log("Hi, this is the loadPatientPanelFunction");
   //var patient_id = id_string.split("-")[2];
   //loadPatientPanel(patient_id);
-  loadPatientPanel(0);
-  loadPatientPanel(1);
-  loadPatientPanel(2);
-  loadPatientPanel(3);
+
+  for (i = 0; i < 4; i++) {
+     loadPatientPanel(i);
+     patientsNavbar(i);
+  }
 }
 
 function loadPatientPanel(id) {
@@ -40,4 +44,12 @@ function loadPatient(id) {
     $( "div#progressModal .modal-body" ).html(patient_data['progress-data']['html']);
   
   } );
+}
+
+function patientsNavbar(id) {
+  $.getJSON('http://api.s-pi-demo.com/patients', function(data) {
+    var patient_data = data[id+1];
+    var navbar_obj = $("#navbar-" + id);
+    navbar_obj.find(".patient-name-navbar").html(patient_data["name"]);
+  });
 }
