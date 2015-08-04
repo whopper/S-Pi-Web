@@ -33,6 +33,7 @@ function loadPatientPanel(id) {
 function loadPatient(id) {
   patient_id = parseInt(id) + 1
   $.getJSON('http://api.s-pi-demo.com/patients/'+patient_id, function(data) {
+    $(document).prop('title', 'S-Pi Patient Information: ' + data["name"]);
     $( ".name-text").html(data["name"]);
     $( "#age").html(data["age"]);
     $( "#bed").html(data["bed"]);
@@ -41,7 +42,6 @@ function loadPatient(id) {
     
   $.getJSON('/patients.json', function(data) {
     patient_data = data['patients'][id];
-    $(document).prop('title', 'S-Pi Patient Information: ' + patient_data["name"]);
     $( "div#dataModal .modal-body" ).html(patient_data['clinical-data']['html']);
     $( "div#labsModal .modal-body" ).html(patient_data['labs-data']['html']);
     $( "div#medsModal .modal-body" ).html(patient_data['meds-data']['html']);
