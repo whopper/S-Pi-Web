@@ -29,3 +29,12 @@ height:50px;
   cursor: pointer;
 }
 
+#logo_footer {
+    border-style: none;
+    background-color: #E8E8E8;
+}
+
+#logo_container {
+    margin-top: 10px;
+    margin-left: 18%;
+}
