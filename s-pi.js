@@ -32,8 +32,19 @@ function loadPatientPanel(id) {
 
 function loadPatient(id) {
   patient_id = parseInt(id) + 1
+  if (patient_id == 1) {
+     img_source = "./images/Ann_Droid.jpg"
+  } else if (patient_id == 2) {
+     img_source = "./images/Mac_Intosh.jpg"
+  } else if (patient_id == 3) {
+     img_source = "./images/Mike_Rosoft.jpg"
+  } else {
+     img_source = "./images/Java_Script.jpg"
+  }
+
   $.getJSON('http://api.s-pi-demo.com/patients/'+patient_id, function(data) {
     $(document).prop('title', 'S-Pi Patient Information: ' + data["name"]);
+    $( "#patient-image").html("<img src='" + img_source + "' alt='Patient Image' width='100px'>");
     $( ".name-text").html(data["name"]);
     $( "#age").html(data["age"]);
     $( "#bed").html(data["bed"]);
