@@ -24,7 +24,7 @@ function loadPatientPanel(id) {
     var patient_obj = $("#patient-" + id);
     patient_obj.find(".patient-name-text").html(patient_data["name"]);
     patient_obj.find(".patient-bed-number").html(patient_data["bed"]);
-    patient_obj.find(".patient-temperature").html(patient_data["temperature"]);
+    patient_obj.find(".patient-temperature").html(patient_data["temperature"].toFixed(1));
     patient_obj.find(".patient-blood-pressure").html(patient_data["blood_pressure"]);
     patient_obj.find(".patient-heart-rate").html(patient_data["heart-rate"]);
   });
