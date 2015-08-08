@@ -99,3 +99,14 @@ height:50px;
   padding-bottom: 5px;
   font-size: 150%;
 }
+
+#logo_footer {
+    border-style: none;
+    position: relative;
+    background-color: white;
+}
+
+#logo_container {
+    margin-top: 10px;
+    margin-left: 18%;
+}
